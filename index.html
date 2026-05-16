@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HyperFusion 2026 | JIS College of Engineering</title>
+  <meta name="description"
+    content="HyperFusion 2026 - The Ultimate National Hackathon at JIS College of Engineering. Innovate. Build. Transform." />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ===== LOADING SCREEN ===== -->
+  <div id="loader" class="loader-overlay">
+    <div class="loader-content">
+      <div class="loader-logo">HF</div>
+      <div class="loader-title">HyperFusion 2026</div>
+      <div class="loader-bar-wrapper">
+        <div class="loader-bar"></div>
+      </div>
+      <div class="loader-text">Initializing Systems...</div>
+    </div>
+  </div>
+
+  <!-- ===== NAVIGATION BAR ===== -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-container">
+      <!-- Logo -->
+      <a href="#hero" class="nav-logo">
+        <span class="logo-bracket">&lt;</span>
+        HyperFusion
+        <span class="logo-bracket">/&gt;</span>
+      </a>
+
+      <!-- Desktop Menu -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#timeline" class="nav-link">Timeline</a></li>
+        <li><a href="#schedule" class="nav-link">Schedule</a></li>
+        <li><a href="#prizes" class="nav-link">Prizes</a></li>
+        <li><a href="#team" class="nav-link">Team</a></li>
+        <li><a href="#sponsors" class="nav-link">Sponsors</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <!-- Register Button -->
+      <button class="btn-register-nav" onclick="openModal()">
+        <i class="fas fa-rocket"></i> Register
+      </button>
+
+      <!-- Hamburger Menu -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobileOverlay" onclick="closeMobileMenu()"></div>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section id="hero" class="hero-section">
+    <!-- Particle Canvas -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Animated Background Grid -->
+    <div class="hero-grid"></div>
+
+    <!-- Glowing Orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="hero-content">
+      <!-- Badge -->
+      <div class="hero-badge reveal" data-delay="0">
+        <i class="fas fa-star"></i>
+        Fusion 2026
+        <i class="fas fa-star"></i>
+      </div>
+
+      <!-- Main Title -->
+      <h1 class="hero-title reveal" data-delay="100">
+        <span class="title-hack">Hack</span><span class="title-fusion">Fusion</span>
+        <span class="title-year">2026</span>
+      </h1>
+
+      <!-- Tagline -->
+      <p class="hero-tagline reveal" data-delay="200">
+        <span class="tag-word">Innovate</span>
+        <span class="tag-dot">•</span>
+        <span class="tag-word">Build</span>
+        <span class="tag-dot">•</span>
+        <span class="tag-word">Transform</span>
+      </p>
+
+      <!-- College Name -->
+      <p class="hero-college reveal" data-delay="300">
+        <i class="fas fa-university"></i>
+        JIS College of Engineering, Kalyani, West Bengal
+      </p>
+
+      <!-- Event Details -->
+      <div class="hero-details reveal" data-delay="400">
+        <div class="detail-item">
+          <i class="fas fa-calendar-alt"></i>
+          <div>
+            <span class="detail-label">Date</span>
+            <span class="detail-value">July 2026 (Tentative)</span>
+          </div>
+        </div>
+        <div class="detail-divider"></div>
+        <div class="detail-item">
+          <i class="fas fa-clock"></i>
+          <div>
+            <span class="detail-label">Duration</span>
+            <span class="detail-value">8 Hours</span>
+          </div>
+        </div>
+        <div class="detail-divider"></div>
+        <div class="detail-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <span class="detail-label">Mode</span>
+            <span class="detail-value">Offline</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Countdown Timer -->
+      <div class="countdown-wrapper reveal" data-delay="500">
+        <p class="countdown-label">Registration Closes In:</p>
+        <div class="countdown-timer" id="countdown">
+          <div class="count-box">
+            <span class="count-number" id="days">00</span>
+            <span class="count-unit">Days</span>
+          </div>
+          <div class="count-separator">:</div>
+          <div class="count-box">
+            <span class="count-number" id="hours">00</span>
+            <span class="count-unit">Hours</span>
+          </div>
+          <div class="count-separator">:</div>
+          <div class="count-box">
+            <span class="count-number" id="minutes">00</span>
+            <span class="count-unit">Mins</span>
+          </div>
+          <div class="count-separator">:</div>
+          <div class="count-box">
+            <span class="count-number" id="seconds">00</span>
+            <span class="count-unit">Secs</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div class="hero-buttons reveal" data-delay="600">
+        <button class="btn btn-primary" onclick="openModal()">
+          <i class="fas fa-rocket"></i>
+          Register Now
+          <span class="btn-shine"></span>
+        </button>
+        <a href="#" class="btn btn-secondary" download>
+          <i class="fas fa-file-pdf"></i>
+          Rulebook
+        </a>
+        <a href="#contact" class="btn btn-outline">
+          <i class="fas fa-envelope"></i>
+          Contact Us
+        </a>
+      </div>
+
+
+
+      <!-- Scroll Indicator -->
+      <div class="scroll-indicator">
+        <div class="scroll-mouse">
+          <div class="scroll-wheel"></div>
+        </div>
+        <span>Scroll Down</span>
+      </div>
+  </section>
+
+  <!-- ===== ABOUT SECTION ===== -->
+  <section id="about" class="section about-section">
+    <div class="container">
+      <!-- Section Header -->
+      <div class="section-header reveal">
+        <span class="section-tag">About the Event</span>
+        <h2 class="section-title">What is <span class="gradient-text">HyperFusion 2026</span>?</h2>
+        <p class="section-subtitle">A premier hackathon bringing together the brightest minds to solve real-world
+          challenges</p>
+      </div>
+
+      <!-- About Grid -->
+      <div class="about-grid">
+        <!-- Left: Description -->
+        <div class="about-text reveal">
+          <p class="about-intro">
+            HyperFusion 2026 is an intensive <strong>8-hour hackathon</strong> organized by
+            <strong>JIS College of Engineering Computer Science and Engineering Department</strong>, designed to
+            challenge students to innovate, collaborate,
+            and build solutions that matter. Whether you're a coding wizard, a UI/UX genius, or a problem-solver
+            extraordinaire — HyperFusion is your stage.
+          </p>
+          <p class="about-desc">
+            With an electrifying atmosphere, participants will tackle
+            real-world problems across five high-impact domains. From ideation to prototype, the journey is intense,
+            rewarding, and transformative.
+          </p>
+
+          <!-- Goals -->
+          <div class="goals-list">
+            <div class="goal-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Foster innovation and entrepreneurial thinking among students</span>
+            </div>
+            <div class="goal-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Bridge the gap between academic learning and industry requirements</span>
+            </div>
+            <div class="goal-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Provide a platform for networking with industry professionals</span>
+            </div>
+            <div class="goal-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Promote collaborative problem-solving across disciplines</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Themes -->
+        <div class="themes-grid reveal" data-delay="200">
+          <h3 class="themes-title">Hackathon Themes</h3>
+          <div class="theme-cards">
+            <div class="theme-card" data-theme="ai">
+              <div class="theme-icon"><i class="fas fa-brain"></i></div>
+              <h4>AI & Machine Learning</h4>
+              <p>Build intelligent systems using ML, deep learning, and natural language processing.</p>
+              <div class="theme-tag">HOT</div>
+            </div>
+            <div class="theme-card" data-theme="iot">
+              <div class="theme-icon"><i class="fas fa-microchip"></i></div>
+              <h4>IoT & Smart Systems</h4>
+              <p>Connect devices and create smart solutions for homes, cities, and industries.</p>
+            </div>
+            <div class="theme-card" data-theme="cyber">
+              <div class="theme-icon"><i class="fas fa-shield-alt"></i></div>
+              <h4>Cybersecurity</h4>
+              <p>Develop tools to detect, prevent, and mitigate digital threats and vulnerabilities.</p>
+            </div>
+            <div class="theme-card" data-theme="web">
+              <div class="theme-icon"><i class="fas fa-globe"></i></div>
+              <h4>Web & App Development</h4>
+              <p>Create impactful web platforms, mobile apps, and progressive web applications.</p>
+            </div>
+            <div class="theme-card" data-theme="sustain">
+              <div class="theme-icon"><i class="fas fa-leaf"></i></div>
+              <h4>Sustainability & Smart Cities</h4>
+              <p>Build tech solutions addressing climate, urban planning, and sustainability.</p>
+              <div class="theme-tag new">NEW</div>
+            </div>
+            <div class="theme-card" data-theme="open">
+              <div class="theme-icon"><i class="fas fa-lightbulb"></i></div>
+              <h4>Open Innovation</h4>
+              <p>Got an out-of-the-box idea? Build anything crazy, innovative, and impactful in any domain!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== IMPORTANT DATES TIMELINE ===== -->
+  <section id="timeline" class="section timeline-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Key Milestones</span>
+        <h2 class="section-title">Important <span class="gradient-text">Dates</span></h2>
+        <p class="section-subtitle">Mark your calendar and stay on track with every milestone</p>
+      </div>
+
+      <div class="timeline">
+        <!-- Timeline Item 1 -->
+        <div class="timeline-item reveal" data-side="left">
+          <div class="timeline-card">
+            <div class="timeline-icon"><i class="fas fa-door-open"></i></div>
+            <div class="timeline-content">
+              <span class="timeline-date">July 2026 (Tentative)</span>
+              <h3>Registration Opens</h3>
+              <p>Registrations go live! Fill in your team details and claim your spot before it's too late.</p>
+            </div>
+            <div class="timeline-status open">Open</div>
+          </div>
+          <div class="timeline-connector"></div>
+        </div>
+
+        <!-- Timeline Item 2 -->
+        <div class="timeline-item reveal" data-side="right" data-delay="100">
+          <div class="timeline-card">
+            <div class="timeline-icon"><i class="fas fa-door-closed"></i></div>
+            <div class="timeline-content">
+              <span class="timeline-date">July 2026 (Tentative)</span>
+              <h3>Registration Closes</h3>
+              <p>Last day to submit your registration. Don't miss out — no extensions will be given.</p>
+            </div>
+            <div class="timeline-status deadline">Deadline</div>
+          </div>
+          <div class="timeline-connector"></div>
+        </div>
+
+        <!-- Timeline Item 3 -->
+        <div class="timeline-item reveal" data-side="left" data-delay="200">
+          <div class="timeline-card">
+            <div class="timeline-icon"><i class="fas fa-list-check"></i></div>
+            <div class="timeline-content">
+              <span class="timeline-date">July 2026 (Tentative)</span>
+              <h3>Shortlisting Announcement</h3>
+              <p>Selected teams will be announced via email and on the official website. Teams are selected based on
+                GitHub profiles. Check your inbox!</p>
+            </div>
+            <div class="timeline-status upcoming">Upcoming</div>
+          </div>
+          <div class="timeline-connector"></div>
+        </div>
+
+        <!-- Timeline Item 4 -->
+        <div class="timeline-item reveal" data-side="right" data-delay="300">
+          <div class="timeline-card">
+            <div class="timeline-icon"><i class="fas fa-play-circle"></i></div>
+            <div class="timeline-content">
+              <span class="timeline-date">July 2026 (Tentative) — 9:00 AM</span>
+              <h3>Hackathon Begins</h3>
+              <p>The clock starts ticking! 8 hours of coding, building, and innovating begins now.</p>
+            </div>
+            <div class="timeline-status upcoming">Main Event</div>
+          </div>
+          <div class="timeline-connector"></div>
+        </div>
+
+        <!-- Timeline Item 5 -->
+        <div class="timeline-item reveal" data-side="left" data-delay="400">
+          <div class="timeline-card">
+            <div class="timeline-icon"><i class="fas fa-presentation-screen"></i></div>
+            <div class="timeline-content">
+              <span class="timeline-date">July 2026 (Tentative) — 4:00 PM</span>
+              <h3>Final Presentations</h3>
+              <p>Present your project to a panel of industry experts, investors, and faculty judges.</p>
+            </div>
+            <div class="timeline-status upcoming">Upcoming</div>
+          </div>
+          <div class="timeline-connector"></div>
+        </div>
+
+        <!-- Timeline Item 6 -->
+        <div class="timeline-item reveal" data-side="right" data-delay="500">
+          <div class="timeline-card">
+            <div class="timeline-icon"><i class="fas fa-trophy"></i></div>
+            <div class="timeline-content">
+              <span class="timeline-date">July 2026 (Tentative) — 5:30 PM</span>
+              <h3>Prize Distribution</h3>
+              <p>Winners announced, prizes awarded, and certificates distributed. The grand finale!</p>
+            </div>
+            <div class="timeline-status finale">Grand Finale</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== REGISTRATION DETAILS ===== -->
+  <section id="registration" class="section registration-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Join the Challenge</span>
+        <h2 class="section-title">Registration <span class="gradient-text">Details</span></h2>
+        <p class="section-subtitle">Everything you need to know before registering</p>
+      </div>
+
+      <div class="reg-grid">
+        <!-- Left Cards -->
+        <div class="reg-cards reveal">
+          <div class="reg-card">
+            <div class="reg-card-icon"><i class="fas fa-users"></i></div>
+            <h4>Team Size</h4>
+            <p>2 to 4 members per team. Solo participation is not allowed. Cross-college teams are welcome!</p>
+          </div>
+          <div class="reg-card">
+            <div class="reg-card-icon"><i class="fas fa-graduation-cap"></i></div>
+            <h4>Eligibility</h4>
+            <p>Open to all UG/PG students enrolled in any recognized college or university across India.</p>
+          </div>
+          <div class="reg-card">
+            <div class="reg-card-icon"><i class="fas fa-rupee-sign"></i></div>
+            <h4>Registration Fee</h4>
+            <p>FREE for all teams! Covers meals, swag, and resources for 8 hours.</p>
+          </div>
+          <div class="reg-card">
+            <div class="reg-card-icon"><i class="fas fa-filter"></i></div>
+            <h4>Selection Criteria</h4>
+            <p>Teams shortlisted based on GitHub profile quality, project idea, innovation, and feasibility.</p>
+          </div>
+          <div class="reg-card">
+            <div class="reg-card-icon"><i class="fas fa-users-cog"></i></div>
+            <h4>Maximum Teams</h4>
+            <p>50 teams will be selected based on GitHub profiles and project proposals.</p>
+          </div>
+        </div>
+
+        <!-- Right: Registration CTA -->
+        <div class="reg-cta reveal" data-delay="200">
+          <div class="reg-cta-card glass-card">
+            <div class="reg-cta-badge">
+              <i class="fas fa-fire"></i> Limited Spots!
+            </div>
+            <h3>Ready to Hack?</h3>
+            <p>Join 500+ innovators from across India for 8 hours of intense building, learning, and networking.</p>
+
+            <div class="reg-info-list">
+              <div class="reg-info-item">
+                <i class="fas fa-calendar"></i>
+                <span><strong>Opens:</strong> July 2026 (Tentative)</span>
+              </div>
+              <div class="reg-info-item">
+                <i class="fas fa-calendar-times"></i>
+                <span><strong>Closes:</strong> July 2026 (Tentative)</span>
+              </div>
+              <div class="reg-info-item">
+                <i class="fas fa-laptop"></i>
+                <span><strong>Mode:</strong> Offline Only</span>
+              </div>
+              <div class="reg-info-item">
+                <i class="fas fa-certificate"></i>
+                <span><strong>Certificates:</strong> All participants</span>
+              </div>
+              <div class="reg-info-item">
+                <i class="fas fa-utensils"></i>
+                <span><strong>Food & Refreshments:</strong> Included</span>
+              </div>
+              <div class="reg-info-item">
+                <i class="fas fa-bed"></i>
+                <span><strong>Accommodation:</strong> Available on request</span>
+              </div>
+            </div>
+
+            <button class="btn btn-primary btn-full" onclick="openModal()">
+              <i class="fas fa-rocket"></i>
+              Register Your Team Now
+            </button>
+            <p class="reg-note"><i class="fas fa-info-circle"></i> No prior hackathon experience required!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SCHEDULE SECTION ===== -->
+  <section id="schedule" class="section schedule-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Event Program</span>
+        <h2 class="section-title">Event <span class="gradient-text">Schedule</span></h2>
+        <p class="section-subtitle">A packed 8-hour journey — every hour counts!</p>
+      </div>
+
+      <!-- Event Schedule -->
+      <div class="schedule-table-wrapper reveal">
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th><i class="fas fa-clock"></i> Time</th>
+              <th><i class="fas fa-calendar-check"></i> Event</th>
+              <th><i class="fas fa-map-pin"></i> Venue</th>
+              <th><i class="fas fa-tag"></i> Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="schedule-row">
+              <td class="time-cell">08:00 AM</td>
+              <td><strong>Participant Reporting & Check-In</strong><br><small>Badge collection, kit
+                  distribution</small></td>
+              <td>Main Entrance</td>
+              <td><span class="badge badge-info">Logistics</span></td>
+            </tr>
+            <tr class="schedule-row highlight">
+              <td class="time-cell">09:00 AM</td>
+              <td><strong>Inauguration Ceremony</strong><br><small>Welcome by Director & Chief Guests</small></td>
+              <td>Auditorium</td>
+              <td><span class="badge badge-purple">Ceremony</span></td>
+            </tr>
+            <tr class="schedule-row">
+              <td class="time-cell">09:30 AM</td>
+              <td><strong>Problem Statement Release & Hacking Begins!</strong><br><small>8-hour countdown starts
+                  now</small></td>
+              <td>Labs (A, B, C)</td>
+              <td><span class="badge badge-green">Hack Start</span></td>
+            </tr>
+            <tr class="schedule-row">
+              <td class="time-cell">12:30 PM</td>
+              <td><strong>Lunch Break</strong><br><small>Buffet served at the cafeteria</small></td>
+              <td>Cafeteria</td>
+              <td><span class="badge badge-yellow">Break</span></td>
+            </tr>
+            <tr class="schedule-row highlight">
+              <td class="time-cell">04:30 PM</td>
+              <td><strong>Submission Deadline</strong><br><small>Final code push & project submission</small></td>
+              <td>All Labs</td>
+              <td><span class="badge badge-red">Deadline</span></td>
+            </tr>
+            <tr class="schedule-row">
+              <td class="time-cell">04:30 PM</td>
+              <td><strong>Evaluation Round</strong><br><small>Judges evaluate all projects</small></td>
+              <td>All Labs</td>
+              <td><span class="badge badge-purple">Evaluation</span></td>
+            </tr>
+            <tr class="schedule-row highlight">
+              <td class="time-cell">05:00 PM</td>
+              <td><strong>Final Presentations — Top 10 Teams</strong><br><small>5 minutes pitch + 3 min Q&A</small>
+              </td>
+              <td>Auditorium</td>
+              <td><span class="badge badge-green">Presentations</span></td>
+            </tr>
+            <tr class="schedule-row highlight">
+              <td class="time-cell">05:30 PM</td>
+              <td><strong>Result Announcement & Prize Distribution</strong><br><small>Winners announced +
+                  certificates</small></td>
+              <td>Auditorium</td>
+              <td><span class="badge badge-gold">Grand Finale</span></td>
+            </tr>
+            <tr class="schedule-row">
+              <td class="time-cell">06:00 PM</td>
+              <td><strong>Networking & Closing Ceremony</strong><br><small>Meet the judges, industry leaders</small>
+              </td>
+              <td>Open Ground</td>
+              <td><span class="badge badge-purple">Networking</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VENUE SECTION ===== -->
+  <section id="venue" class="section venue-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Find Us</span>
+        <h2 class="section-title">Venue & <span class="gradient-text">Location</span></h2>
+        <p class="section-subtitle">Come find us at the heart of excellence in West Bengal</p>
+      </div>
+
+      <div class="venue-grid">
+        <!-- Map -->
+        <div class="venue-map reveal">
+          <div class="map-placeholder">
+            <div class="map-overlay">
+              <i class="fas fa-map-marker-alt map-pin-icon"></i>
+              <p class="map-college">JIS College of Engineering</p>
+              <p class="map-addr">Kalyani, West Bengal — 741235</p>
+              <a href="https://maps.google.com/?q=JIS+College+of+Engineering+Kalyani" target="_blank"
+                class="btn btn-primary map-btn">
+                <i class="fas fa-directions"></i> Get Directions
+              </a>
+            </div>
+            <!-- Embedded iframe placeholder -->
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3668.271!2d88.434!3d22.975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDU4JzMwLjAiTiA4OMKwMjYnMDIuNCJF!5e0!3m2!1sen!2sin!4v1234567890"
+              width="100%" height="100%" style="border:0; border-radius: 16px;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade" title="JIS College of Engineering Map">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- Venue Info -->
+        <div class="venue-info reveal" data-delay="200">
+          <div class="venue-card glass-card">
+            <h3><i class="fas fa-building"></i> Venue Details</h3>
+            <div class="venue-detail-item">
+              <i class="fas fa-university"></i>
+              <div>
+                <strong>Name</strong>
+                <span>JIS College of Engineering</span>
+              </div>
+            </div>
+            <div class="venue-detail-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <strong>Address</strong>
+                <span>Block A, Phase III, Kalyani, Nadia, West Bengal — 741235</span>
+              </div>
+            </div>
+            <div class="venue-detail-item">
+              <i class="fas fa-train"></i>
+              <div>
+                <strong>Nearest Railway Station</strong>
+                <span>Kanchrapara Station (2 km)</span>
+              </div>
+            </div>
+            <div class="venue-detail-item">
+              <i class="fas fa-bus"></i>
+              <div>
+                <strong>Bus Stop</strong>
+                <span>JIS College Bus Stop (50 m) · Kalyani Bus Stand (2 km)</span>
+              </div>
+            </div>
+            <div class="venue-detail-item">
+              <i class="fas fa-car"></i>
+              <div>
+                <strong>From Kolkata</strong>
+                <span>~50 km via NH12 · 1.5 hrs by road · Direct buses from Esplanade</span>
+              </div>
+            </div>
+            <div class="venue-detail-item">
+              <i class="fas fa-parking"></i>
+              <div>
+                <strong>Parking</strong>
+                <span>Free parking available on campus for cars and bikes</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ORGANISING TEAM ===== -->
+  <section id="team" class="section team-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Meet the Crew</span>
+        <h2 class="section-title">Organising <span class="gradient-text">Team</span></h2>
+        <p class="section-subtitle">The passionate people making HyperFusion 2026 happen</p>
+      </div>
+
+      <!-- Faculty -->
+      <div class="team-category reveal">
+        <h3 class="team-cat-title"><i class="fas fa-chalkboard-teacher"></i> Faculty Coordinators</h3>
+        <div class="team-row">
+          <div class="team-card">
+            <div class="team-avatar" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="team-info">
+              <h4>Prof. Suprativ Saha</h4>
+              <p class="team-role">Faculty Coordinator</p>
+              <p class="team-dept">Dept. of Computer Science</p>
+              <div class="team-socials">
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="team-info">
+              <h4>Prof. Sanket Dan</h4>
+              <p class="team-role">Co-Faculty Coordinator</p>
+              <p class="team-dept">Dept. of Computer Science</p>
+              <div class="team-socials">
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Student Leadership -->
+      <div class="team-category reveal" data-delay="100">
+        <h3 class="team-cat-title"><i class="fas fa-crown"></i> Lead Organisers</h3>
+        <div class="team-row">
+          <div class="team-card featured">
+            <div class="team-badge">Lead</div>
+            <div class="team-avatar" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="team-info">
+              <h4>Saif Ali</h4>
+              <p class="team-role">Lead Organiser</p>
+              <p class="team-dept">CSE, 2nd Year</p>
+              <div class="team-socials">
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="team-card featured">
+            <div class="team-badge">Lead</div>
+            <div class="team-avatar" style="background: linear-gradient(135deg, #43e97b, #38f9d7);">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="team-info">
+              <h4>Suchishmita Mukhopadhyay</h4>
+              <p class="team-role">Lead Organiser</p>
+              <p class="team-dept">CSE, 2nd Year</p>
+              <div class="team-socials">
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="team-card featured">
+            <div class="team-badge">Lead</div>
+            <div class="team-avatar" style="background: linear-gradient(135deg, #fa709a, #fee140);">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="team-info">
+              <h4>Rajdeep Chakraborty</h4>
+              <p class="team-role">Lead Organiser</p>
+              <p class="team-dept">CSE, 2nd Year</p>
+              <div class="team-socials">
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Organisers -->
+      <div class="team-category reveal" data-delay="200">
+        <h3 class="team-cat-title"><i class="fas fa-users"></i> Organisers</h3>
+        <div class="team-row">
+          <div class="team-card">
+            <div class="team-avatar" style="background: linear-gradient(135deg, #a18cd1, #fbc2eb);">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="team-info">
+              <h4>Romi Singh</h4>
+              <p class="team-role">Media and Outreach Lead</p>
+              <p class="team-dept">CSE, 2nd Year</p>
+              <div class="team-socials">
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar" style="background: linear-gradient(135deg, #ffecd2, #fcb69f);">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="team-info">
+              <h4>Rupam Mandal</h4>
+              <p class="team-role">Finance and Budget Lead </p>
+              <p class="team-dept">CSE, 2nd Year</p>
+              <div class="team-socials">
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar" style="background: linear-gradient(135deg, #89f7fe, #66a6ff);">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="team-info">
+              <h4>Sarbajit Das</h4>
+              <p class="team-role">Mangement Lead</p>
+              <p class="team-dept">CSE, 2nd Year</p>
+              <div class="team-socials">
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar" style="background: linear-gradient(135deg, #ff9a9e, #fecfef);">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="team-info">
+              <h4>Sayantika Samanta</h4>
+              <p class="team-role">Registration and Affairs Lead</p>
+              <p class="team-dept">CSE, 2nd Year</p>
+              <div class="team-socials">
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar" style="background: linear-gradient(135deg, #fddb92, #d1fdff);">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="team-info">
+              <h4>Rajarshi Mandol</h4>
+              <p class="team-role">Social Media and Design Lead</p>
+              <p class="team-dept">CSE, 2nd Year</p>
+              <div class="team-socials">
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="team-info">
+              <h4>Sangram Sen</h4>
+              <p class="team-role">Sponsorship Lead</p>
+              <p class="team-dept">CSE, 2nd Year</p>
+              <div class="team-socials">
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SPONSORS SECTION ===== -->
+  <section id="sponsors" class="section sponsors-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Our Supporters</span>
+        <h2 class="section-title">Sponsors & <span class="gradient-text">Partners</span></h2>
+        <p class="section-subtitle">Proudly supported by industry leaders and innovators</p>
+      </div>
+
+      <!-- Title Sponsor -->
+      <div class="sponsor-tier reveal">
+        <div class="tier-label title-sponsor">
+          <i class="fas fa-crown"></i> Title Sponsor
+        </div>
+        <div class="sponsor-logos-row">
+          <div class="sponsor-logo-card sponsor-large">
+            <div class="sponsor-placeholder">
+              <i class="fas fa-building"></i>
+              <span>TBA</span>
+              <small>Title Sponsor</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gold Sponsors -->
+      <div class="sponsor-tier reveal" data-delay="100">
+        <div class="tier-label gold-sponsor">
+          <i class="fas fa-star"></i> Gold Sponsors
+        </div>
+        <div class="sponsor-logos-row">
+          <div class="sponsor-logo-card">
+            <div class="sponsor-placeholder">
+              <i class="fas fa-cloud"></i>
+              <span>TBA</span>
+            </div>
+          </div>
+          <div class="sponsor-logo-card">
+            <div class="sponsor-placeholder">
+              <i class="fas fa-microchip"></i>
+              <span>TBA</span>
+            </div>
+          </div>
+          <div class="sponsor-logo-card">
+            <div class="sponsor-placeholder">
+              <i class="fas fa-shield-alt"></i>
+              <span>TBA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Silver Sponsors -->
+      <div class="sponsor-tier reveal" data-delay="200">
+        <div class="tier-label silver-sponsor">
+          <i class="fas fa-award"></i> Silver Sponsors
+        </div>
+        <div class="sponsor-logos-row">
+          <div class="sponsor-logo-card sponsor-small">
+            <div class="sponsor-placeholder">
+              <i class="fas fa-laptop-code"></i>
+              <span>TBA</span>
+            </div>
+          </div>
+          <div class="sponsor-logo-card sponsor-small">
+            <div class="sponsor-placeholder">
+              <i class="fab fa-android"></i>
+              <span>TBA</span>
+            </div>
+          </div>
+          <div class="sponsor-logo-card sponsor-small">
+            <div class="sponsor-placeholder">
+              <i class="fas fa-database"></i>
+              <span>TBA</span>
+            </div>
+          </div>
+          <div class="sponsor-logo-card sponsor-small">
+            <div class="sponsor-placeholder">
+              <i class="fas fa-robot"></i>
+              <span>TBA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Partner Organizations -->
+      <div class="sponsor-tier reveal" data-delay="300">
+        <div class="tier-label partner">
+          <i class="fas fa-handshake"></i> Partners & Media
+        </div>
+        <div class="sponsor-logos-row">
+          <div class="sponsor-logo-card sponsor-small">
+            <div class="sponsor-placeholder">
+              <i class="fas fa-newspaper"></i>
+              <span>TBA</span>
+            </div>
+          </div>
+          <div class="sponsor-logo-card sponsor-small">
+            <div class="sponsor-placeholder">
+              <i class="fas fa-broadcast-tower"></i>
+              <span>TBA</span>
+            </div>
+          </div>
+          <div class="sponsor-logo-card sponsor-small">
+            <div class="sponsor-placeholder">
+              <i class="fas fa-graduation-cap"></i>
+              <span>TBA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Become a Sponsor CTA -->
+      <div class="sponsor-cta reveal" data-delay="200">
+        <div class="sponsor-cta-card glass-card">
+          <i class="fas fa-handshake"></i>
+          <h3>Become a Sponsor</h3>
+          <p>Partner with HyperFusion 2026 and get access to 1000+ talented tech students. Showcase your brand to
+            the next generation of innovators.</p>
+          <a href="mailto:sensangram414@gmail.com" class="btn btn-primary">
+            <i class="fas fa-envelope"></i> Contact for Sponsorship
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ SECTION ===== -->
+  <section id="faq" class="section faq-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Got Questions?</span>
+        <h2 class="section-title">Frequently Asked <span class="gradient-text">Questions</span></h2>
+        <p class="section-subtitle">Everything you need to know about HyperFusion 2026</p>
+      </div>
+
+      <div class="faq-container reveal">
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span><i class="fas fa-user-graduate"></i> Who can participate in HyperFusion 2026?</span>
+            <i class="fas fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>HyperFusion 2026 is open to all undergraduate and postgraduate students currently enrolled in any
+              recognized college or university across India. Whether you're from engineering, science, management,
+              or arts — all are welcome to apply. Students with valid college ID cards are eligible.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span><i class="fas fa-code"></i> Is prior hackathon or coding experience required?</span>
+            <i class="fas fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Absolutely not! HyperFusion 2026 welcomes participants of all skill levels — from absolute beginners
+              to seasoned coders. We even have a "Best Beginner Team" prize to encourage first-timers.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span><i class="fas fa-university"></i> Can students from other colleges or states participate?</span>
+            <i class="fas fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Yes! HyperFusion 2026 is a hackathon and welcomes participants from any college
+              across India. Teams can be cross-college (members from different institutions). Please note this is
+              an offline-only event — all teams must participate in person at the venue.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span><i class="fas fa-laptop"></i> What should participants bring to the event?</span>
+            <i class="fas fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Participants should bring: (1) Valid college ID card, (2) Laptop and charger, (3) Any
+              hardware/prototyping tools if needed, (4) Printed or digital copy of the registration confirmation,
+              (5) Personal hygiene kit for overnight stay. Food and high-speed WiFi will be provided. Do NOT bring
+              any pre-built projects.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span><i class="fas fa-certificate"></i> Will certificates be provided to all participants?</span>
+            <i class="fas fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Yes! Every registered participant who attends the event will receive a digitally signed
+              participation certificate from JIS College of Engineering. Winners will receive special achievement
+              certificates. Certificates will be emailed within 7 days of the event.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span><i class="fas fa-bed"></i> Is accommodation provided?</span>
+            <i class="fas fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Yes, limited accommodation is available on-campus for outstation participants on a request basis.
+              You can mention your accommodation requirement during registration. The accommodation is free of
+              charge and will be provided on a first-come, first-served basis. Please specify the number of team
+              members needing accommodation.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 7 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span><i class="fas fa-users"></i> What is the team size requirement?</span>
+            <i class="fas fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Each team must have between 2 to 4 members. Solo participation is not permitted. Teams can include
+              members from different colleges or departments. Cross-discipline teams (e.g., a coder, designer, and
+              business student) are highly encouraged!</p>
+          </div>
+        </div>
+
+        <!-- FAQ 8 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span><i class="fas fa-tools"></i> What technology stack can we use?</span>
+            <i class="fas fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Teams are free to use any programming language, framework, or tool. You can use web technologies,
+              mobile frameworks, AI/ML libraries, IoT platforms, databases, cloud services, or any combination.
+              Open-source tools and APIs are permitted. However, you must start building during the hackathon — no
+              pre-built projects.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 9 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span><i class="fas fa-gavel"></i> How will projects be judged?</span>
+            <i class="fas fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Projects will be evaluated by a panel of industry experts and faculty judges based on: (1)
+              Innovation & Creativity — 25%, (2) Technical Complexity — 25%, (3) Feasibility & Impact — 20%, (4)
+              Presentation & Demo — 20%, (5) UI/UX Design — 10%. Final top 10 teams will present in the
+              auditorium.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact for more -->
+      <div class="faq-more reveal" data-delay="200">
+        <p>Still have questions?</p>
+        <a href="#contact" class="btn btn-outline">
+          <i class="fas fa-envelope"></i> Get in Touch
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section id="contact" class="section contact-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Reach Out</span>
+        <h2 class="section-title">Contact <span class="gradient-text">Us</span></h2>
+        <p class="section-subtitle">We're here to help — reach out through any channel</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Contact Info -->
+        <div class="contact-info reveal">
+          <div class="contact-info-card glass-card">
+            <h3><i class="fas fa-address-book"></i> Get In Touch</h3>
+
+            <div class="contact-detail">
+              <div class="contact-icon-wrap"><i class="fas fa-envelope"></i></div>
+              <div>
+                <strong>Email</strong>
+                <a href="mailto:sensangram414@gmail.com">sensangram414@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="contact-icon-wrap"><i class="fas fa-phone-alt"></i></div>
+              <div>
+                <strong>Phone</strong>
+                <a href="tel:+7596955136">+91 75969 55136</a>
+                <a href="tel:+7439870511">+91 74398 70511</a>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="contact-icon-wrap"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <strong>Address</strong>
+                <span>JIS College of Engineering, Block A, Kalyani, West Bengal — 741235</span>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="contact-icon-wrap"><i class="fas fa-clock"></i></div>
+              <div>
+                <strong>Office Hours</strong>
+                <span>Mon – Sat: 10:00 AM – 5:00 PM</span>
+              </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="contact-socials">
+              <h4>Follow Us</h4>
+              <div class="social-links">
+                <a href="#" class="social-btn instagram" aria-label="Instagram">
+                  <i class="fab fa-instagram"></i>
+                  <span>Instagram</span>
+                </a>
+                <a href="#" class="social-btn discord" aria-label="Discord">
+                  <i class="fab fa-discord"></i>
+                  <span>Discord</span>
+                </a>
+                <a href="#" class="social-btn whatsapp" aria-label="WhatsApp">
+                  <i class="fab fa-whatsapp"></i>
+                  <span>WhatsApp</span>
+                </a>
+                <a href="#" class="social-btn linkedin" aria-label="LinkedIn">
+                  <i class="fab fa-linkedin"></i>
+                  <span>LinkedIn</span>
+                </a>
+                <a href="#" class="social-btn twitter" aria-label="Twitter">
+                  <i class="fab fa-twitter"></i>
+                  <span>Twitter / X</span>
+                </a>
+                <a href="#" class="social-btn youtube" aria-label="YouTube">
+                  <i class="fab fa-youtube"></i>
+                  <span>YouTube</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form-wrapper reveal" data-delay="200">
+          <div class="contact-form-card glass-card">
+            <h3><i class="fas fa-paper-plane"></i> Send a Message</h3>
+            <form id="contactForm" class="contact-form" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="contactName">Full Name *</label>
+                  <input type="text" id="contactName" name="name" placeholder="Your full name" required />
+                  <span class="form-error" id="nameError"></span>
+                </div>
+                <div class="form-group">
+                  <label for="contactEmail">Email Address *</label>
+                  <input type="email" id="contactEmail" name="email" placeholder="your@email.com" required />
+                  <span class="form-error" id="emailError"></span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="contactPhone">Phone Number</label>
+                <input type="tel" id="contactPhone" name="phone" placeholder="+91 XXXXX XXXXX" />
+              </div>
+              <div class="form-group">
+                <label for="contactSubject">Subject *</label>
+                <select id="contactSubject" name="subject" required>
+                  <option value="">Select a topic</option>
+                  <option>Registration Query</option>
+                  <option>Technical Issue</option>
+                  <option>Sponsorship Inquiry</option>
+                  <option>Accommodation Request</option>
+                  <option>Team Formation Help</option>
+                  <option>Other</option>
+                </select>
+                <span class="form-error" id="subjectError"></span>
+              </div>
+              <div class="form-group">
+                <label for="contactMessage">Message *</label>
+                <textarea id="contactMessage" name="message" rows="5" placeholder="Write your message here..."
+                  required></textarea>
+                <span class="form-error" id="messageError"></span>
+              </div>
+              <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+                <i class="fas fa-paper-plane"></i>
+                Send Message
+              </button>
+            </form>
+            <!-- Success Message -->
+            <div class="form-success" id="formSuccess" style="display:none;">
+              <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+              <h4>Message Sent!</h4>
+              <p>Thank you for reaching out! We'll get back to you within 24–48 hours.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Brand -->
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <span class="logo-bracket">&lt;</span>HyperFusion<span class="logo-bracket">/&gt;</span>
+            </div>
+            <p class="footer-tagline">Innovate • Build • Transform</p>
+            <p class="footer-desc">India's most exciting college hackathon, organized by JIS College of
+              Engineering, Kalyani, West Bengal.</p>
+            <div class="footer-socials">
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+              <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+              <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="footer-links-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#hero"><i class="fas fa-chevron-right"></i> Home</a></li>
+              <li><a href="#about"><i class="fas fa-chevron-right"></i> About</a></li>
+              <li><a href="#timeline"><i class="fas fa-chevron-right"></i> Timeline</a></li>
+              <li><a href="#schedule"><i class="fas fa-chevron-right"></i> Schedule</a></li>
+              <li><a href="#team"><i class="fas fa-chevron-right"></i> Team</a></li>
+            </ul>
+          </div>
+
+          <!-- More Links -->
+          <div class="footer-links-col">
+            <h4>Information</h4>
+            <ul>
+              <li><a href="#registration"><i class="fas fa-chevron-right"></i> Registration</a></li>
+              <li><a href="#venue"><i class="fas fa-chevron-right"></i> Venue</a></li>
+              <li><a href="#faq"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+              <li><a href="#sponsors"><i class="fas fa-chevron-right"></i> Sponsors</a></li>
+              <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+              <li><a href="#"><i class="fas fa-chevron-right"></i> Rulebook</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact Summary -->
+          <div class="footer-contact-col">
+            <h4>Contact Info</h4>
+            <div class="footer-contact-item">
+              <i class="fas fa-university"></i>
+              <span>JIS College of Engineering, Kalyani, WB</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:sensangram414@gmail.com">sensangram414@gmail.com</a>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fas fa-phone"></i>
+              <a href="tel:+919876543210">+91 98765 43210</a>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fas fa-calendar"></i>
+              <span>Mid-July 2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="footer-bottom-content">
+          <p>&copy; 2026 HyperFusion | JIS College of Engineering. All rights reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="#">Terms & Conditions</a>
+            <span>|</span>
+            <a href="#">Privacy Policy</a>
+            <span>|</span>
+            <a href="#">Code of Conduct</a>
+          </div>
+        </div>
+        <p class="footer-made">Made with <i class="fas fa-heart" style="color:#f43f5e;"></i> by the HyperFusion Dev
+          Team</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== REGISTRATION MODAL ===== -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+    <div class="modal-box glass-card">
+      <button class="modal-close" id="modalCloseBtn" aria-label="Close modal">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <div class="modal-header">
+        <div class="modal-logo">🚀</div>
+        <h2>Register for HyperFusion 2026</h2>
+        <p>Fill in your team details and join the hackathon!</p>
+      </div>
+
+      <form id="registrationForm" class="modal-form" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Team Name *</label>
+            <input type="text" id="teamName" placeholder="e.g., CodeCrafters" required />
+          </div>
+          <div class="form-group">
+            <label>Team Size *</label>
+            <select id="teamSize" required>
+              <option value="">Select</option>
+              <option value="2">2 Members</option>
+              <option value="3">3 Members</option>
+              <option value="4">4 Members</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Team Leader Name *</label>
+            <input type="text" id="leaderName" placeholder="Full name" required />
+          </div>
+          <div class="form-group">
+            <label>Leader Email *</label>
+            <input type="email" id="leaderEmail" placeholder="email@college.edu" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" id="leaderPhone" placeholder="+91 XXXXX XXXXX" required />
+          </div>
+          <div class="form-group">
+            <label>College Name *</label>
+            <input type="text" id="collegeName" placeholder="Your college" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Preferred Theme *</label>
+          <select id="theme" required>
+            <option value="">Select theme</option>
+            <option>AI & Machine Learning</option>
+            <option>IoT & Smart Systems</option>
+            <option>Cybersecurity</option>
+            <option>Web & App Development</option>
+            <option>Sustainability & Smart Cities</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Brief Project Idea *</label>
+          <textarea id="projectIdea" rows="3" placeholder="Describe your project idea in 2–3 sentences..."
+            required></textarea>
+        </div>
+
+        <div class="form-group checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="agreeTerms" required />
+            <span>I agree to the <a href="#" class="link-blue">Terms & Conditions</a> and <a href="#"
+                class="link-blue">Code of Conduct</a></span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full" id="regSubmitBtn">
+          <i class="fas fa-rocket"></i> Submit Registration
+        </button>
+      </form>
+
+      <!-- Registration Success -->
+      <div class="reg-success" id="regSuccess" style="display:none;">
+        <div class="success-animation">
+          <div class="success-circle">
+            <i class="fas fa-check"></i>
+          </div>
+        </div>
+        <h3>Registration Submitted!</h3>
+        <p>Your team has been registered successfully. You'll receive a confirmation email within 24 hours. Good
+          luck!</p>
+        <div class="reg-id">Registration ID: <strong id="regId"></strong></div>
+        <button class="btn btn-outline" id="regSuccessClose">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1/bundled/lenis.min.js"></script>
+
+  <!-- External JavaScript -->
+  <script src="script.js"></script>
+</body>
+
+</html>
