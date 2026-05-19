@@ -971,7 +971,6 @@ ul { list-style: none; }
 }
 
 .theme-card[data-theme="ai"]:hover { border-color: rgba(108,99,255,0.6); }
-.theme-card[data-theme="iot"]:hover { border-color: rgba(0,212,255,0.6); }
 .theme-card[data-theme="cyber"]:hover { border-color: rgba(255,107,107,0.6); }
 .theme-card[data-theme="web"]:hover { border-color: rgba(74,222,128,0.6); }
 .theme-card[data-theme="sustain"]:hover { border-color: rgba(250,204,21,0.6); }
@@ -988,7 +987,6 @@ ul { list-style: none; }
 }
 
 .theme-card[data-theme="ai"] .theme-icon { background: rgba(108,99,255,0.2); color: var(--primary); }
-.theme-card[data-theme="iot"] .theme-icon { background: rgba(0,212,255,0.2); color: var(--secondary); }
 .theme-card[data-theme="cyber"] .theme-icon { background: rgba(255,107,107,0.2); color: var(--accent); }
 .theme-card[data-theme="web"] .theme-icon { background: rgba(74,222,128,0.2); color: var(--accent-green); }
 .theme-card[data-theme="sustain"] .theme-icon { background: rgba(250,204,21,0.2); color: var(--accent-yellow); }
