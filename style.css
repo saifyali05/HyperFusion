@@ -1748,6 +1748,23 @@ ul { list-style: none; }
   gap: 24px;
 }
 
+.organisers-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 992px) {
+  .organisers-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .organisers-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 .team-card {
   display: flex;
   align-items: center;
