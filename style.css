@@ -195,61 +195,99 @@ ul { list-style: none; }
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 14px 28px;
+  gap: 10px;
+  padding: 14px 32px;
   border-radius: 50px;
   font-family: var(--font-body);
   font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
   border: none;
   cursor: pointer;
-  transition: var(--transition);
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
   position: relative;
   overflow: hidden;
   text-decoration: none;
   white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.btn i {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn:hover i.fa-rocket {
+  transform: translateY(-4px) translateX(4px) rotate(15deg) scale(1.2);
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.8);
 }
 
 .btn-primary {
-  background: var(--gradient-primary);
+  background: linear-gradient(135deg, #6c63ff 0%, #00d4ff 50%, #ff6b6b 100%);
+  background-size: 200% auto;
   color: #fff;
-  box-shadow: 0 4px 20px rgba(108, 99, 255, 0.4);
+  box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3), 0 0 0 1px rgba(108, 99, 255, 0.2);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0));
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(108, 99, 255, 0.6);
+  background-position: right center;
   color: #fff;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(108, 99, 255, 0.4), 
+              0 0 30px rgba(0, 212, 255, 0.4),
+              0 0 0 1px rgba(0, 212, 255, 0.4);
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
+}
+
+.btn-primary:active {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow: 0 5px 15px rgba(108, 99, 255, 0.4), 
+              0 0 15px rgba(0, 212, 255, 0.3);
 }
 
 .btn-secondary {
-  background: rgba(0, 212, 255, 0.1);
+  background: rgba(0, 212, 255, 0.08);
   color: var(--secondary);
-  border: 1px solid rgba(0, 212, 255, 0.4);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.05);
 }
 
 .btn-secondary:hover {
-  background: rgba(0, 212, 255, 0.2);
+  background: rgba(0, 212, 255, 0.15);
+  border-color: var(--secondary);
+  color: #fff;
   transform: translateY(-2px);
-  color: var(--secondary);
+  box-shadow: 0 8px 20px rgba(0, 212, 255, 0.2);
 }
 
 .btn-outline {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.02);
   color: var(--text-primary);
   border: 1px solid var(--border-glass);
 }
 
 .btn-outline:hover {
   background: var(--bg-glass-hover);
-  border-color: var(--primary);
+  border-color: var(--primary-light);
   color: var(--text-white);
   transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(108, 99, 255, 0.15);
 }
 
 .btn-full { width: 100%; justify-content: center; }
 
+/* Premium Shiny Sweeper */
 .btn-shine::after {
   content: '';
   position: absolute;
@@ -257,9 +295,14 @@ ul { list-style: none; }
   left: -75%;
   width: 50%;
   height: 200%;
-  background: rgba(255,255,255,0.2);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
   transform: skewX(-30deg);
-  transition: left 0.5s;
+  transition: left 0.6s cubic-bezier(0.3, 1, 0.2, 1);
 }
 
 .btn-primary:hover .btn-shine::after { left: 125%; }
@@ -489,27 +532,196 @@ ul { list-style: none; }
   background: rgba(108, 99, 255, 0.15);
 }
 
+/* Pulsing Live Registration Dot */
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #00ffcc;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 8px #00ffcc, 0 0 15px #00ffcc;
+  animation: pulseDot 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  margin-right: 6px;
+  flex-shrink: 0;
+}
+
+@keyframes pulseDot {
+  0%, 100% {
+    transform: scale(0.85);
+    opacity: 0.6;
+    box-shadow: 0 0 0 0 rgba(0, 255, 204, 0.7);
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+    box-shadow: 0 0 8px 4px rgba(0, 255, 204, 0);
+  }
+}
+
+/* Glowing Aura behind Register Buttons */
+.btn-register, .btn-register-nav {
+  position: relative;
+  z-index: 1;
+}
+
+/* Shifting Liquid Gradient Keyframes */
+@keyframes liquidGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Base style for Register Buttons */
+.btn-register {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  white-space: nowrap;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #6c63ff, #00d4ff, #ff6b6b, #6c63ff);
+  background-size: 300% 300%;
+  color: #fff !important;
+  border: none;
+  animation: liquidGradient 6s ease infinite, buttonPulseGlow 3s ease-in-out infinite;
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
 .btn-register-nav {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 8px 20px;
-  background: var(--gradient-primary);
+  gap: 8px;
+  padding: 10px 24px;
+  background: linear-gradient(135deg, #6c63ff, #00d4ff, #ff6b6b, #6c63ff);
+  background-size: 300% 300%;
   color: #fff;
   border: none;
   border-radius: 50px;
   font-family: var(--font-body);
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
   cursor: pointer;
-  transition: var(--transition);
   flex-shrink: 0;
-  box-shadow: 0 4px 15px rgba(108,99,255,0.4);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  animation: liquidGradient 6s ease infinite, buttonPulseGlow 3s ease-in-out infinite;
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1) !important;
 }
 
-.btn-register-nav:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(108,99,255,0.6);
+/* Ambient Pulse Glow Keyframes */
+@keyframes buttonPulseGlow {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(108, 99, 255, 0.4), 
+                0 0 0 1px rgba(108, 99, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 6px 25px rgba(0, 212, 255, 0.6), 
+                0 0 12px rgba(108, 99, 255, 0.3),
+                0 0 0 2px rgba(0, 212, 255, 0.2);
+  }
+}
+
+/* Hover Shimmer & Glow Breath Keyframes */
+@keyframes hoverGlowBreath {
+  0%, 100% {
+    box-shadow: 0 8px 30px rgba(108, 99, 255, 0.8), 
+                0 0 25px rgba(0, 212, 255, 0.6), 
+                0 0 40px rgba(255, 107, 107, 0.4),
+                inset 0 0 10px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 12px 40px rgba(108, 99, 255, 1), 
+                0 0 35px rgba(0, 212, 255, 0.8), 
+                0 0 60px rgba(255, 107, 107, 0.6),
+                inset 0 0 16px rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* Hover State */
+.btn-register:hover, .btn-register-nav:hover {
+  transform: translateY(-4px) scale(1.04);
+  animation: liquidGradient 2.5s ease infinite, hoverGlowBreath 2s ease-in-out infinite;
+  color: #ffffff !important;
+}
+
+/* Active Click State */
+.btn-register:active, .btn-register-nav:active {
+  transform: translateY(-1px) scale(0.97);
+  box-shadow: 0 4px 15px rgba(108, 99, 255, 0.6), 
+              0 0 10px rgba(0, 212, 255, 0.4);
+}
+
+/* Rocket Blast Off Micro-interaction */
+@keyframes rocketLaunch {
+  0% {
+    transform: translateY(0) translateX(0) scale(1) rotate(0deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 0px rgba(0, 255, 204, 0));
+  }
+  40% {
+    transform: translateY(-22px) translateX(22px) scale(0.7) rotate(15deg);
+    opacity: 0;
+    filter: drop-shadow(0 0 8px rgba(0, 255, 204, 0.8));
+  }
+  41% {
+    transform: translateY(22px) translateX(-22px) scale(0.7) rotate(15deg);
+    opacity: 0;
+  }
+  80% {
+    transform: translateY(0) translateX(0) scale(1.15) rotate(-5deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 4px rgba(0, 255, 204, 0.5));
+  }
+  100% {
+    transform: translateY(0) translateX(0) scale(1) rotate(0deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 0px rgba(0, 255, 204, 0));
+  }
+}
+
+.btn-register i, .btn-register-nav i {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-register:hover i.fa-rocket,
+.btn-register-nav:hover i.fa-rocket {
+  animation: rocketLaunch 0.9s cubic-bezier(0.25, 0.8, 0.25, 1) infinite;
+}
+
+/* Cyber Metallic Sweeper (Gloss Shimmer) */
+.btn-register::after, .btn-register-nav::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -75%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-30deg);
+  transition: left 0.7s cubic-bezier(0.3, 1, 0.2, 1);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.btn-register:hover::after, .btn-register-nav:hover::after {
+  left: 125%;
 }
 
 .hamburger {
