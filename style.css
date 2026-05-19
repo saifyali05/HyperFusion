@@ -3237,3 +3237,27 @@ ul { list-style: none; }
   50% { box-shadow: 0 0 25px rgba(74, 222, 128, 0.6); transform: scale(1.05); }
 }
 
+/* =============================================
+   HYPERFUSION GLOBAL BRAND SIGNATURE
+   ============================================= */
+.hyperfusion-brand {
+  font-family: 'Orbitron', sans-serif !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.5px !important;
+  display: inline-block;
+}
+
+.hyperfusion-brand .brand-hyper {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  font-weight: 900 !important;
+}
+
+.hyperfusion-brand .brand-fusion {
+  background: linear-gradient(90deg, #6c63ff, #00d4ff) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  font-weight: 900 !important;
+}
+
