@@ -989,6 +989,18 @@ ul { list-style: none; }
   border-color: var(--secondary);
 }
 
+.hero-logo-img.cse-logo-hero {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.hero-logo-img.cse-logo-hero:hover {
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
+
 .hero-college-text {
   font-size: 0.95rem;
   color: var(--text-muted);
