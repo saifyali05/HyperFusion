@@ -315,6 +315,34 @@ ul { list-style: none; }
   box-shadow: 0 0 30px rgba(108, 99, 255, 0.6);
 }
 
+.loader-brand-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.loader-logo-img {
+  height: 64px;
+  width: 64px;
+  object-fit: contain;
+  background: #ffffff;
+  border-radius: 50%;
+  padding: 4px;
+  border: 2px solid rgba(108, 99, 255, 0.4);
+  box-shadow: 0 0 20px rgba(108, 99, 255, 0.5);
+  animation: logoPulse 1.5s ease-in-out infinite alternate;
+}
+
+.loader-logo-img:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.loader-logo-img:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
 @keyframes logoPulse {
   0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(108,99,255,0.6); }
   50% { transform: scale(1.05); box-shadow: 0 0 50px rgba(108,99,255,0.9); }
@@ -391,6 +419,35 @@ ul { list-style: none; }
   align-items: center;
   justify-content: space-between;
   gap: 20px;
+}
+
+.nav-branding {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-logos {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-logo-img {
+  height: 32px;
+  width: 32px;
+  object-fit: contain;
+  background: #ffffff;
+  border-radius: 50%;
+  padding: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 8px rgba(108, 99, 255, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.nav-logo-img:hover {
+  transform: scale(1.15) translateY(-2px);
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.6);
 }
 
 .nav-logo {
@@ -642,17 +699,51 @@ ul { list-style: none; }
   font-size: 1.2em;
 }
 
-.hero-college {
+.hero-college-branding {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.hero-brand-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.hero-logo-img {
+  height: 72px;
+  width: 72px;
+  object-fit: contain;
+  background: #ffffff;
+  border-radius: 50%;
+  padding: 5px;
+  border: 2px solid rgba(108, 99, 255, 0.3);
+  box-shadow: 0 0 15px rgba(108, 99, 255, 0.3);
+  transition: var(--transition);
+}
+
+.hero-logo-img:hover {
+  transform: scale(1.1) translateY(-3px);
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.7);
+  border-color: var(--secondary);
+}
+
+.hero-college-text {
   font-size: 0.95rem;
   color: var(--text-muted);
-  margin-bottom: 32px;
+  font-family: var(--font-body);
+  letter-spacing: 1px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
 }
 
-.hero-college i { color: var(--primary); }
+.hero-college-text i { color: var(--primary); }
 
 /* Hero Details Bar */
 .hero-details {
@@ -2796,6 +2887,23 @@ ul { list-style: none; }
   .sponsor-logos-row { flex-direction: column; }
 
   .scroll-top-btn { bottom: 16px; right: 16px; width: 40px; height: 40px; }
+
+  .nav-logo-img {
+    height: 24px;
+    width: 24px;
+  }
+  .nav-branding {
+    gap: 8px;
+  }
+  .hero-logo-img {
+    height: 50px;
+    width: 50px;
+  }
+  .hero-college-text {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    text-align: center;
+  }
 }
 
 /* ===== FREE REGISTRATION HIGHLIGHT ===== */

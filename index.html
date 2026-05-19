@@ -25,7 +25,9 @@
   <!-- ===== LOADING SCREEN ===== -->
   <div id="loader" class="loader-overlay">
     <div class="loader-content">
-      <div class="loader-logo">JISCE</div>
+      <div class="loader-brand-logos">
+        <img src="assets/jis_logo.jpeg" class="loader-logo-img" alt="JIS College of Engineering">
+      </div>
       <div class="loader-title">HyperFusion 2K26</div>
       <div class="loader-bar-wrapper">
         <div class="loader-bar"></div>
@@ -37,12 +39,14 @@
   <!-- ===== NAVIGATION BAR ===== -->
   <nav id="navbar" class="navbar">
     <div class="nav-container">
-      <!-- Logo -->
-      <a href="#hero" class="nav-logo">
-        <span class="logo-bracket">&lt;</span>
-        HyperFusion
-        <span class="logo-bracket">/&gt;</span>
-      </a>
+      <!-- Logo & Branding -->
+      <div class="nav-branding">
+        <a href="#hero" class="nav-logo">
+          <span class="logo-bracket">&lt;</span>
+          HyperFusion
+          <span class="logo-bracket">/&gt;</span>
+        </a>
+      </div>
 
       <!-- Desktop Menu -->
       <ul class="nav-links" id="navLinks">
@@ -110,11 +114,18 @@
         <span class="tag-word">Transform</span>
       </p>
 
-      <!-- College Name -->
-      <p class="hero-college reveal" data-delay="300">
-        <i class="fas fa-university"></i>
-        JIS College of Engineering, Kalyani, West Bengal
-      </p>
+      <!-- College Branding -->
+      <div class="hero-college-branding reveal" data-delay="300">
+        <div class="hero-brand-logos">
+          <img src="assets/jis_group.jpeg" class="hero-logo-img" alt="JIS Group">
+          <img src="assets/cse_logo.jpeg" class="hero-logo-img" alt="CSE Department">
+          <img src="assets/jis_logo.jpeg" class="hero-logo-img" alt="JIS College of Engineering">
+        </div>
+        <p class="hero-college-text">
+          <i class="fas fa-university"></i>
+          JIS Group · JIS College of Engineering (Autonomous) · Dept. of CSE
+        </p>
+      </div>
 
       <!-- Event Details -->
       <div class="hero-details reveal" data-delay="400">
