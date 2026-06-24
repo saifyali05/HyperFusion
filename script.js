@@ -259,8 +259,8 @@ function updateCountdown() {
     return;
   }
 
-  const days    = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
@@ -382,14 +382,14 @@ document.getElementById('regSuccessClose')?.addEventListener('click', forceClose
 registrationForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  const teamName   = document.getElementById('teamName');
-  const teamSize   = document.getElementById('teamSize');
+  const teamName = document.getElementById('teamName');
+  const teamSize = document.getElementById('teamSize');
   const leaderName = document.getElementById('leaderName');
-  const leaderEmail= document.getElementById('leaderEmail');
-  const leaderPhone= document.getElementById('leaderPhone');
-  const collegeName= document.getElementById('collegeName');
-  const theme      = document.getElementById('theme');
-  const projectIdea= document.getElementById('projectIdea');
+  const leaderEmail = document.getElementById('leaderEmail');
+  const leaderPhone = document.getElementById('leaderPhone');
+  const collegeName = document.getElementById('collegeName');
+  const theme = document.getElementById('theme');
+  const projectIdea = document.getElementById('projectIdea');
   const agreeTerms = document.getElementById('agreeTerms');
 
   let valid = true;
@@ -442,75 +442,7 @@ registrationForm.addEventListener('submit', (e) => {
 
 
 /* ===== 13. CONTACT FORM VALIDATION & SUBMISSION ===== */
-const contactForm = document.getElementById('contactForm');
-const formSuccess = document.getElementById('formSuccess');
-
-contactForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  let valid = true;
-
-  // Fields
-  const name    = document.getElementById('contactName');
-  const email   = document.getElementById('contactEmail');
-  const subject = document.getElementById('contactSubject');
-  const message = document.getElementById('contactMessage');
-
-  // Error elements
-  const nameErr    = document.getElementById('nameError');
-  const emailErr   = document.getElementById('emailError');
-  const subjectErr = document.getElementById('subjectError');
-  const messageErr = document.getElementById('messageError');
-
-  // Reset
-  [name, email, subject, message].forEach(el => el.classList.remove('error'));
-  [nameErr, emailErr, subjectErr, messageErr].forEach(el => {
-    el.textContent = '';
-    el.classList.remove('visible');
-  });
-
-  // Validate
-  if (!name.value.trim()) {
-    name.classList.add('error');
-    nameErr.textContent = 'Please enter your full name.';
-    nameErr.classList.add('visible');
-    valid = false;
-  }
-
-  if (!isValidEmail(email.value)) {
-    email.classList.add('error');
-    emailErr.textContent = 'Please enter a valid email address.';
-    emailErr.classList.add('visible');
-    valid = false;
-  }
-
-  if (!subject.value) {
-    subject.classList.add('error');
-    subjectErr.textContent = 'Please select a subject.';
-    subjectErr.classList.add('visible');
-    valid = false;
-  }
-
-  if (!message.value.trim() || message.value.trim().length < 10) {
-    message.classList.add('error');
-    messageErr.textContent = 'Please enter a message (at least 10 characters).';
-    messageErr.classList.add('visible');
-    valid = false;
-  }
-
-  if (!valid) return;
-
-  // Simulate submission
-  const submitBtn = document.getElementById('submitBtn');
-  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-  submitBtn.disabled = true;
-
-  setTimeout(() => {
-    contactForm.style.display = 'none';
-    formSuccess.style.display = 'block';
-    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-    submitBtn.disabled = false;
-  }, 1800);
-});
+// Contact form has been removed.
 
 
 /* ===== 14. EMAIL VALIDATION HELPER ===== */

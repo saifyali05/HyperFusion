@@ -715,6 +715,28 @@ ul {
   backdrop-filter: blur(10px);
 }
 
+/* Devfolio Apply Button */
+.apply-button {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 8px;
+}
+
+.apply-button-link {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.apply-button-link:hover {
+  transform: translateY(-2px);
+}
+
+.apply-button-link img {
+  height: 60px;
+  width: auto;
+  display: block;
+}
+
 /* Ambient Pulse Glow Keyframes */
 @keyframes buttonPulseGlow {
   0%, 100% {
@@ -2741,10 +2763,15 @@ ul {
 }
 
 .contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 40px;
-  align-items: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-info {
+  width: 100%;
 }
 
 .contact-info-card {

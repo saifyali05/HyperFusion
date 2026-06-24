@@ -18,6 +18,9 @@
 
   <!-- External CSS -->
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Devfolio SDK -->
+  <script defer async src="https://apply.devfolio.co/v2/sdk.js"></script>
 </head>
 
 <body>
@@ -61,12 +64,6 @@
         <li><a href="#faq" class="nav-link">FAQ</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
-
-      <!-- Register Button -->
-      <button class="btn-register-nav" onclick="openModal()">
-        <span class="pulse-dot"></span>
-        <i class="fas fa-rocket"></i> Register
-      </button>
 
       <!-- Hamburger Menu -->
       <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
@@ -186,12 +183,11 @@
 
       <!-- CTA Buttons -->
       <div class="hero-buttons reveal" data-delay="600">
-        <button class="btn btn-primary btn-register" onclick="openModal()">
-          <span class="pulse-dot"></span>
-          <i class="fas fa-rocket"></i>
-          Register Now
-          <span class="btn-shine"></span>
-        </button>
+        <div class="apply-button">
+          <a href="https://devfolio.co" class="apply-button-link" target="_blank">
+            <img src="assets/devfolio_apply.png" alt="DEVFOLIO LOGO">
+          </a>
+        </div>
         <a href="#" class="btn btn-secondary" download>
           <i class="fas fa-file-pdf"></i>
           Rulebook
@@ -475,11 +471,11 @@
               </div>
             </div>
 
-            <button class="btn btn-primary btn-register btn-full" onclick="openModal()">
-              <span class="pulse-dot"></span>
-              <i class="fas fa-rocket"></i>
-              Register Your Team Now
-            </button>
+            <div class="apply-button">
+              <a href="https://devfolio.co" class="apply-button-link" target="_blank">
+                <img src="assets/devfolio_apply.png" alt="DEVFOLIO LOGO">
+              </a>
+            </div>
             <p class="reg-note"><i class="fas fa-info-circle"></i> No prior hackathon experience required!</p>
           </div>
         </div>
@@ -1159,60 +1155,10 @@
           </div>
         </div>
 
-        <!-- Contact Form -->
-        <div class="contact-form-wrapper reveal" data-delay="200">
-          <div class="contact-form-card glass-card">
-            <h3><i class="fas fa-paper-plane"></i> Send a Message</h3>
-            <form id="contactForm" class="contact-form" novalidate>
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="contactName">Full Name *</label>
-                  <input type="text" id="contactName" name="name" placeholder="Your full name" required />
-                  <span class="form-error" id="nameError"></span>
-                </div>
-                <div class="form-group">
-                  <label for="contactEmail">Email Address *</label>
-                  <input type="email" id="contactEmail" name="email" placeholder="your@email.com" required />
-                  <span class="form-error" id="emailError"></span>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="contactPhone">Phone Number</label>
-                <input type="tel" id="contactPhone" name="phone" placeholder="+91 XXXXX XXXXX" />
-              </div>
-              <div class="form-group">
-                <label for="contactSubject">Subject *</label>
-                <select id="contactSubject" name="subject" required>
-                  <option value="">Select a topic</option>
-                  <option>Registration Query</option>
-                  <option>Technical Issue</option>
-                  <option>Sponsorship Inquiry</option>
-                  <option>Accommodation Request</option>
-                  <option>Team Formation Help</option>
-                  <option>Other</option>
-                </select>
-                <span class="form-error" id="subjectError"></span>
-              </div>
-              <div class="form-group">
-                <label for="contactMessage">Message *</label>
-                <textarea id="contactMessage" name="message" rows="5" placeholder="Write your message here..."
-                  required></textarea>
-                <span class="form-error" id="messageError"></span>
-              </div>
-              <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
-                <i class="fas fa-paper-plane"></i>
-                Send Message
-              </button>
-            </form>
-            <!-- Success Message -->
-            <div class="form-success" id="formSuccess" style="display:none;">
-              <div class="success-icon"><i class="fas fa-check-circle"></i></div>
-              <h4>Message Sent!</h4>
-              <p>Thank you for reaching out! We'll get back to you within 24–48 hours.</p>
-            </div>
-          </div>
-        </div>
+
       </div>
+    </div>
+    </div>
     </div>
   </section>
 
@@ -1311,106 +1257,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- ===== REGISTRATION MODAL ===== -->
-  <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
-    <div class="modal-box glass-card">
-      <button class="modal-close" id="modalCloseBtn" aria-label="Close modal">
-        <i class="fas fa-times"></i>
-      </button>
-
-      <div class="modal-header">
-        <div class="modal-logo">🚀</div>
-        <h2>Register for <span class="hyperfusion-brand"><span class="brand-hyper">Hyper</span><span
-              class="brand-fusion">Fusion</span></span> 2026</h2>
-        <p>Fill in your team details and join the hackathon!</p>
-      </div>
-
-      <form id="registrationForm" class="modal-form" novalidate>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Team Name *</label>
-            <input type="text" id="teamName" placeholder="e.g., CodeCrafters" required />
-          </div>
-          <div class="form-group">
-            <label>Team Size *</label>
-            <select id="teamSize" required>
-              <option value="">Select</option>
-              <option value="2">2 Members</option>
-              <option value="3">3 Members</option>
-              <option value="4">4 Members</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label>Team Leader Name *</label>
-            <input type="text" id="leaderName" placeholder="Full name" required />
-          </div>
-          <div class="form-group">
-            <label>Leader Email *</label>
-            <input type="email" id="leaderEmail" placeholder="email@college.edu" required />
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label>Phone Number *</label>
-            <input type="tel" id="leaderPhone" placeholder="+91 XXXXX XXXXX" required />
-          </div>
-          <div class="form-group">
-            <label>College Name *</label>
-            <input type="text" id="collegeName" placeholder="Your college" required />
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label>Preferred Theme *</label>
-          <select id="theme" required>
-            <option value="">Select theme</option>
-            <option>AI & Machine Learning</option>
-            <option>Cybersecurity</option>
-            <option>Web & App Development</option>
-            <option>Sustainability & Smart Cities</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>Brief Project Idea *</label>
-          <textarea id="projectIdea" rows="3" placeholder="Describe your project idea in 2–3 sentences..."
-            required></textarea>
-        </div>
-
-        <div class="form-group checkbox-group">
-          <label class="checkbox-label">
-            <input type="checkbox" id="agreeTerms" required />
-            <span>I agree to the <a href="#" class="link-blue">Terms & Conditions</a> and <a href="#"
-                class="link-blue">Code of Conduct</a></span>
-          </label>
-        </div>
-
-        <button type="submit" class="btn btn-primary btn-register btn-full" id="regSubmitBtn">
-          <span class="pulse-dot"></span>
-          <i class="fas fa-rocket"></i> Submit Registration
-        </button>
-      </form>
-
-      <!-- Registration Success -->
-      <div class="reg-success" id="regSuccess" style="display:none;">
-        <div class="success-animation">
-          <div class="success-circle">
-            <i class="fas fa-check"></i>
-          </div>
-        </div>
-        <h3>Registration Submitted!</h3>
-        <p>Your team has been registered successfully. You'll receive a confirmation email within 24 hours. Good
-          luck!</p>
-        <div class="reg-id">Registration ID: <strong id="regId"></strong></div>
-        <button class="btn btn-outline" id="regSuccessClose">Close</button>
-      </div>
-    </div>
-  </div>
 
   <!-- Scroll to Top Button -->
   <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
