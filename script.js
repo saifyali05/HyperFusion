@@ -345,31 +345,37 @@ const registrationForm = document.getElementById('registrationForm');
 const regSuccess = document.getElementById('regSuccess');
 
 function openModal() {
+  if (!modalOverlay) return;
   modalOverlay.classList.add('active');
   document.body.style.overflow = 'hidden';
   // Reset form
-  registrationForm.style.display = 'block';
-  regSuccess.style.display = 'none';
-  registrationForm.reset();
+  if (registrationForm) {
+    registrationForm.style.display = 'block';
+    registrationForm.reset();
+  }
+  if (regSuccess) regSuccess.style.display = 'none';
 }
 
 function closeModal(event) {
+  if (!modalOverlay) return;
   // Only close if clicking the overlay itself (not the modal box)
   if (event && event.target !== modalOverlay) return;
   forceCloseModal();
 }
 
 function forceCloseModal() {
+  if (!modalOverlay) return;
   modalOverlay.classList.remove('active');
   document.body.style.overflow = '';
 }
 
 // Close modal button calls forceCloseModal
-document.getElementById('modalCloseBtn').addEventListener('click', forceCloseModal);
+const modalCloseBtn = document.getElementById('modalCloseBtn');
+if (modalCloseBtn) modalCloseBtn.addEventListener('click', forceCloseModal);
 
 // Close on Escape key
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+  if (e.key === 'Escape' && modalOverlay && modalOverlay.classList.contains('active')) {
     forceCloseModal();
   }
 });
@@ -379,6 +385,7 @@ document.getElementById('regSuccessClose')?.addEventListener('click', forceClose
 
 
 /* ===== 12. REGISTRATION FORM VALIDATION & SUBMISSION ===== */
+if (registrationForm) {
 registrationForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
@@ -439,6 +446,7 @@ registrationForm.addEventListener('submit', (e) => {
     submitBtn.disabled = false;
   }, 2000);
 });
+}
 
 
 /* ===== 13. CONTACT FORM VALIDATION & SUBMISSION ===== */
@@ -479,49 +487,56 @@ navLinks.forEach(link => {
 /* ===== 17. THEME CARD HOVER TILT EFFECT ===== */
 const themeCards = document.querySelectorAll('.theme-card');
 
-themeCards.forEach(card => {
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+// Skip tilt on touch devices
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
+if (!isTouchDevice) {
+  themeCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
 
-    const rotateX = (y - centerY) / centerY * -5;
-    const rotateY = (x - centerX) / centerX * 5;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
 
-    card.style.transform = `perspective(500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateX(6px)`;
+      const rotateX = (y - centerY) / centerY * -5;
+      const rotateY = (x - centerX) / centerX * 5;
+
+      card.style.transform = `perspective(500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateX(6px)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
   });
-
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
-  });
-});
+}
 
 
 /* ===== 18. PRIZE CARD TILT EFFECT ===== */
 const prizeCards = document.querySelectorAll('.prize-card');
 
-prizeCards.forEach(card => {
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+if (!isTouchDevice) {
+  prizeCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
 
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
 
-    const rotateX = (y - centerY) / centerY * -8;
-    const rotateY = (x - centerX) / centerX * 8;
+      const rotateX = (y - centerY) / centerY * -8;
+      const rotateY = (x - centerX) / centerX * 8;
 
-    card.style.transform = `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+      card.style.transform = `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
   });
-
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
-  });
-});
+}
 
 
 /* ===== 19. TEAM CARD HOVER EFFECT ===== */
@@ -663,6 +678,7 @@ progressBar.style.cssText = `
   height: 2px;
   background: linear-gradient(90deg, #6c63ff, #00d4ff);
   z-index: 9999;
+  pointer-events: none;
   transition: width 0.1s linear;
 `;
 document.body.prepend(progressBar);
@@ -779,7 +795,12 @@ window.addEventListener('resize', () => {
     if (window.innerWidth > 768) {
       closeMobileMenu();
     }
-  }, 250);
+    // Re-init particles on orientation change
+    if (window.innerWidth !== canvas.width) {
+      resizeCanvas();
+      initParticles();
+    }
+  }, 300);
 });
 
 

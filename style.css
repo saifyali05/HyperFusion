@@ -829,8 +829,9 @@ ul {
   border: none;
   cursor: pointer;
   padding: 0;
-  z-index: 1100;
+  z-index: 1110;
   flex-shrink: 0;
+  position: relative;
 }
 
 .hamburger span {
@@ -857,16 +858,22 @@ ul {
 }
 
 .mobile-menu-overlay {
-  display: none;
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.6);
   z-index: 1050;
   backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+  pointer-events: none;
 }
 
 .mobile-menu-overlay.active {
-  display: block;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
 }
 
 /* ===== HERO SECTION ===== */
@@ -3777,6 +3784,273 @@ ul {
     font-size: 0.85rem;
     line-height: 1.4;
     text-align: center;
+  }
+}
+
+/* ===== RESPONSIVE SCHEDULE CARD LAYOUT (MOBILE) ===== */
+@media (max-width: 600px) {
+  .schedule-table thead {
+    display: none;
+  }
+
+  .schedule-table,
+  .schedule-table tbody,
+  .schedule-table tr,
+  .schedule-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .schedule-table tr {
+    padding: 16px;
+    margin-bottom: 12px;
+    background: var(--bg-glass);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--border-radius);
+  }
+
+  .schedule-row td {
+    padding: 4px 0;
+    border-bottom: none;
+    text-align: left;
+  }
+
+  .schedule-row td:not(:last-child) {
+    margin-bottom: 6px;
+  }
+
+  .schedule-row td.time-cell {
+    font-size: 1rem;
+    margin-bottom: 2px;
+  }
+
+  .schedule-table td::before {
+    content: attr(data-label);
+    display: inline-block;
+    font-size: 0.65rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-right: 8px;
+    min-width: 50px;
+  }
+
+  .schedule-table td.time-cell::before {
+    display: none;
+  }
+
+  .schedule-table td strong {
+    display: inline;
+  }
+
+  .schedule-row.highlight {
+    border-color: rgba(108, 99, 255, 0.3);
+  }
+
+  .schedule-row td small {
+    display: inline;
+    font-size: 0.75rem;
+  }
+
+  .badge {
+    display: inline-block;
+    margin-top: 2px;
+  }
+}
+
+/* ===== RESPONSIVE SPONSOR LOGOS ===== */
+@media (max-width: 600px) {
+  .sponsor-logos-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sponsor-logo-card {
+    width: 100%;
+    max-width: 280px;
+    min-width: unset;
+  }
+
+  .devfolio-partner-card,
+  .media-technical-partner-card,
+  .community-partner-card {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 260px;
+    min-width: unset;
+  }
+}
+
+/* ===== MOBILE SAFARI 100VH FIX ===== */
+@supports (-webkit-touch-callout: none) {
+  .hero-section {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* ===== MOBILE MAP RESPONSIVE ===== */
+@media (max-width: 480px) {
+  .map-placeholder {
+    height: 260px;
+  }
+
+  .map-overlay {
+    padding: 12px 16px;
+    bottom: 12px;
+  }
+
+  .map-pin-icon {
+    font-size: 1.4rem;
+  }
+
+  .map-college {
+    font-size: 0.85rem;
+  }
+
+  .map-addr {
+    font-size: 0.7rem;
+  }
+
+  .map-btn {
+    font-size: 0.75rem;
+    padding: 6px 14px;
+  }
+}
+
+/* ===== MOBILE FORM INPUT FIX (prevent iOS zoom) ===== */
+@media (max-width: 768px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* ===== RESPONSIVE PRIZE CARDS ===== */
+@media (max-width: 900px) {
+  .prizes-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .prizes-grid {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ===== RESPONSIVE ABOUT THEMES ===== */
+@media (max-width: 480px) {
+  .theme-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .theme-icon {
+    margin-bottom: 4px;
+  }
+
+  .theme-tag {
+    position: static;
+    align-self: flex-start;
+    margin-top: 8px;
+  }
+}
+
+/* ===== RESPONSIVE TEAM CARDS ===== */
+@media (max-width: 480px) {
+  .team-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .team-info h4,
+  .team-role,
+  .team-dept {
+    text-align: center;
+  }
+}
+
+/* ===== MOBILE TOUCH: disable hover-only tilt effects ===== */
+@media (hover: none) and (pointer: coarse) {
+  .theme-card:hover {
+    transform: none !important;
+  }
+
+  .theme-card[data-theme="ai"]:hover,
+  .theme-card[data-theme="cyber"]:hover,
+  .theme-card[data-theme="web"]:hover,
+  .theme-card[data-theme="sustain"]:hover {
+    border-color: var(--border-glass) !important;
+  }
+
+  .prize-card:hover {
+    transform: none !important;
+  }
+
+  .timeline-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  .reg-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    border-color: var(--border-glass) !important;
+  }
+
+  .team-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  .sponsor-logo-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  .schedule-row:hover td {
+    background: transparent !important;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+
+  .count-box::before {
+    display: block;
+  }
+}
+
+/* ===== MOBILE NAVIGATION IMPROVEMENTS ===== */
+@media (max-width: 768px) {
+  .nav-links {
+    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -4px 0 30px rgba(0, 0, 0, 0.6);
+  }
+
+  .nav-link.active {
+    background: rgba(108, 99, 255, 0.2);
+    border-left: 3px solid var(--primary);
+  }
+
+  .hero-logo-img {
+    height: 52px;
+    width: 52px;
+  }
+}
+
+/* ===== BROWSER-SAFE SCROLLBAR (thin on all platforms) ===== */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 3px;
   }
 }
 
