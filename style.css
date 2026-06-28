@@ -2565,6 +2565,12 @@ ul {
   border: 1px solid rgba(0, 212, 255, 0.3);
 }
 
+.media-technical-partner {
+  background: rgba(244, 63, 94, 0.12);
+  color: #fb7185;
+  border: 1px solid rgba(244, 63, 94, 0.35);
+}
+
 .sponsor-logos-row {
   display: flex;
   gap: 16px;
@@ -2630,6 +2636,26 @@ ul {
 
 .community-partner-card h4 {
   font-size: 0.8rem;
+  line-height: 1.3;
+}
+
+.media-technical-partner-card {
+  flex: 0 0 210px;
+  min-width: 210px;
+  padding: 14px;
+  text-align: center;
+}
+
+.media-technical-partner-card img {
+  display: block;
+  width: 100%;
+  height: 90px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.media-technical-partner-card h4 {
+  font-size: 0.85rem;
   line-height: 1.3;
 }
 
