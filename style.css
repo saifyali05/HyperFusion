@@ -96,7 +96,7 @@ html.lenis body {
 }
 
 body {
-  background-color: var(--bg-primary);
+  background: var(--gradient-hero);
   color: var(--text-primary);
   font-family: var(--font-text);
   line-height: 1.6;
@@ -157,6 +157,21 @@ ul {
 .section {
   padding: 100px 0;
   position: relative;
+  background: var(--gradient-hero);
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(108, 99, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(108, 99, 255, 0.06) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+  pointer-events: none;
 }
 
 .gradient-text {
@@ -347,7 +362,7 @@ ul {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: var(--bg-primary);
+  background: var(--gradient-hero);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1377,7 +1392,7 @@ ul {
 
 /* ===== ABOUT SECTION ===== */
 .about-section {
-  background: var(--bg-secondary);
+  background: var(--gradient-hero);
   position: relative;
 }
 
@@ -1552,7 +1567,7 @@ ul {
 
 /* ===== TIMELINE SECTION ===== */
 .timeline-section {
-  background: var(--bg-primary);
+  background: var(--gradient-hero);
 }
 
 .timeline {
@@ -1697,7 +1712,7 @@ ul {
 
 /* ===== REGISTRATION SECTION ===== */
 .registration-section {
-  background: var(--bg-secondary);
+  background: var(--gradient-hero);
 }
 
 .reg-grid {
@@ -1821,7 +1836,7 @@ ul {
 
 /* ===== SCHEDULE SECTION ===== */
 .schedule-section {
-  background: var(--bg-primary);
+  background: var(--gradient-hero);
 }
 
 .day-tabs {
@@ -2001,7 +2016,7 @@ ul {
 
 /* ===== VENUE SECTION ===== */
 .venue-section {
-  background: var(--bg-secondary);
+  background: var(--gradient-hero);
 }
 
 .venue-grid {
@@ -2141,7 +2156,7 @@ ul {
 
 /* ===== PRIZES SECTION ===== */
 .prizes-section {
-  background: var(--bg-primary);
+  background: var(--gradient-hero);
 }
 
 .prize-banner {
@@ -2407,7 +2422,7 @@ ul {
 
 /* ===== TEAM SECTION ===== */
 .team-section {
-  background: var(--bg-secondary);
+  background: var(--gradient-hero);
 }
 
 .team-category {
@@ -2555,7 +2570,7 @@ ul {
 
 /* ===== SPONSORS SECTION ===== */
 .sponsors-section {
-  background: var(--bg-primary);
+  background: var(--gradient-hero);
 }
 
 .sponsor-tier {
@@ -2783,7 +2798,7 @@ ul {
 
 /* ===== FAQ SECTION ===== */
 .faq-section {
-  background: var(--bg-secondary);
+  background: var(--gradient-hero);
 }
 
 .faq-container {
@@ -2884,7 +2899,7 @@ ul {
 
 /* ===== CONTACT SECTION ===== */
 .contact-section {
-  background: var(--bg-primary);
+  background: var(--gradient-hero);
 }
 
 .contact-grid {
@@ -3203,7 +3218,7 @@ ul {
 
 /* ===== FOOTER ===== */
 .footer {
-  background: var(--bg-secondary);
+  background: var(--gradient-hero);
   border-top: 1px solid var(--border-glass);
 }
 

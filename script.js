@@ -818,3 +818,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('✅ HyperFusion 2026 initialized successfully!');
 });
+
+/* ===== 35. ADD ORBS TO ALL SECTIONS ===== */
+document.addEventListener('DOMContentLoaded', () => {
+  const sections = document.querySelectorAll('.section:not(.hero-section)');
+  const orbConfigs = [
+    { size: 350, color: 'rgba(108, 99, 255, 0.12)', top: '-80px', left: '-80px', delay: '0s' },
+    { size: 250, color: 'rgba(0, 212, 255, 0.1)', bottom: '-40px', right: '-40px', delay: '-3s' },
+    { size: 200, color: 'rgba(244, 114, 182, 0.08)', top: '50%', right: '15%', delay: '-6s' }
+  ];
+
+  sections.forEach(section => {
+    // Make section position relative for orb positioning
+    if (getComputedStyle(section).position === 'static') {
+      section.style.position = 'relative';
+    }
+    // Ensure overflow hidden
+    section.style.overflow = 'hidden';
+
+    orbConfigs.forEach(config => {
+      const orb = document.createElement('div');
+      orb.className = 'section-orb';
+      orb.style.cssText = `
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        pointer-events: none;
+        z-index: 0;
+        width: ${config.size}px;
+        height: ${config.size}px;
+        background: ${config.color};
+        ${config.top ? `top: ${config.top};` : ''}
+        ${config.bottom ? `bottom: ${config.bottom};` : ''}
+        ${config.left ? `left: ${config.left};` : ''}
+        ${config.right ? `right: ${config.right};` : ''}
+        animation: orbFloat 8s ease-in-out infinite;
+        animation-delay: ${config.delay};
+      `;
+      section.prepend(orb);
+    });
+  });
+});
