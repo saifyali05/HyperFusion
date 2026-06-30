@@ -580,6 +580,12 @@ ul {
   box-shadow: 0 0 12px rgba(0, 212, 255, 0.6);
 }
 
+.hf-logo-nav {
+  height: 56px;
+  width: auto;
+  object-fit: contain;
+}
+
 .nav-logo {
   font-family: var(--font-heading);
   font-size: 1.3rem;
@@ -1093,6 +1099,28 @@ ul {
 .hero-logo-img.cse-logo-hero:hover {
   box-shadow: none !important;
   border-color: transparent !important;
+}
+
+.hf-logo-hero {
+  height: 180px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 12px;
+}
+
+.hf-logo-loader {
+  height: 140px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 8px;
+}
+
+.hf-logo-footer {
+  height: 64px;
+  width: auto;
+  object-fit: contain;
 }
 
 .hero-college-text {
@@ -2578,6 +2606,12 @@ ul {
   border: 1px solid rgba(244, 63, 94, 0.35);
 }
 
+.domain-sponsor {
+  background: rgba(52, 211, 153, 0.12);
+  color: #34d399;
+  border: 1px solid rgba(52, 211, 153, 0.35);
+}
+
 .sponsor-logos-row {
   display: flex;
   gap: 16px;
@@ -2624,6 +2658,27 @@ ul {
 
 .sponsor-small {
   min-height: 80px;
+}
+
+.sponsor-medium {
+  flex: 0 0 210px;
+  min-width: 210px;
+  padding: 14px;
+  text-align: center;
+}
+
+.sponsor-medium img {
+  display: block;
+  width: 160px;
+  max-width: 100%;
+  height: 48px;
+  object-fit: contain;
+  margin: 0 auto 10px;
+}
+
+.sponsor-medium h4 {
+  font-size: 0.85rem;
+  font-weight: 600;
 }
 
 .community-partner-card {
@@ -3771,6 +3826,10 @@ ul {
     width: 24px;
   }
 
+  .hf-logo-nav {
+    height: 40px;
+  }
+
   .nav-branding {
     gap: 8px;
   }
@@ -3778,6 +3837,10 @@ ul {
   .hero-logo-img {
     height: 50px;
     width: 50px;
+  }
+
+  .hf-logo-hero {
+    height: 80px;
   }
 
   .hero-college-text {
@@ -4044,6 +4107,10 @@ ul {
   .hero-logo-img {
     height: 52px;
     width: 52px;
+  }
+
+  .hf-logo-hero {
+    height: 90px;
   }
 }
 
