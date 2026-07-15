@@ -243,7 +243,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 /* ===== 7. COUNTDOWN TIMER ===== */
 // Set target date: August 7, 2026
-const countdownTarget = new Date('2026-08-07T09:00:00+05:30');
+const countdownTarget = new Date('2026-07-28T23:59:00+05:30');
 
 function updateCountdown() {
   const now = new Date();
