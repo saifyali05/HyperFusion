@@ -2635,6 +2635,18 @@ ul {
   border: 1px solid rgba(52, 211, 153, 0.35);
 }
 
+.educational-partner {
+  background: rgba(251, 146, 60, 0.12);
+  color: #fb923c;
+  border: 1px solid rgba(251, 146, 60, 0.35);
+}
+
+.food-sponsor {
+  background: rgba(239, 68, 68, 0.12);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.35);
+}
+
 .sponsor-logos-row {
   display: flex;
   gap: 16px;
@@ -2697,6 +2709,18 @@ ul {
   height: 48px;
   object-fit: contain;
   margin: 0 auto 10px;
+}
+
+.sponsor-medium img.ardent-logo {
+  height: 90px;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.sponsor-medium img.miro-logo,
+.sponsor-medium img.biriyani-logo {
+  width: 190px;
+  height: 76px;
 }
 
 .sponsor-medium h4 {
